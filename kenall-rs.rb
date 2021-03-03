@@ -3,6 +3,7 @@ class KenallRs < Formula
   homepage ""
   version "v0.1.3"
   license "MIT or Apache2"
+  bottle :unneeded
 
   if OS.mac?
     url "https://github.com/chansuke/kenall-rs/releases/download/#{version}/kenall-rs-macos.tar.gz"
