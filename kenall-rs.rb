@@ -3,13 +3,15 @@ class KenallRs < Formula
   homepage "https://github.com/chansuke/kenall-rs"
   license any_of: ["MIT", "Apache-2.0"]
 
-  # v0.1.3 has no arm64 macOS build, so Apple Silicon runs the x86_64 binary under Rosetta.
-  if OS.mac?
-    url "https://github.com/chansuke/kenall-rs/releases/download/v0.1.3/kenall-rs-macos.tar.gz"
-    sha256 "018171a1a7c834b26c319110023afdc3291abe5ae27833696b6376516f5ef52b"
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/chansuke/kenall-rs/releases/download/v0.1.4/kenall-rs-macos-arm64.tar.gz"
+    sha256 "0b5ecbbaffc3dee899b2d463baa985c452f5e20931c39ddefd45df044fdb7f8b"
+  elsif OS.mac?
+    url "https://github.com/chansuke/kenall-rs/releases/download/v0.1.4/kenall-rs-macos.tar.gz"
+    sha256 "0109d6a02090c5179e6f2d6c4e543e1f7aaf8882dcd5c4a72a3552ace42e992c"
   else
-    url "https://github.com/chansuke/kenall-rs/releases/download/v0.1.3/kenall-rs-linux.tar.gz"
-    sha256 "d64807c9b886ab506b9f776f3dacb92a97e5adce9b44ffc2b937ef931cebb861"
+    url "https://github.com/chansuke/kenall-rs/releases/download/v0.1.4/kenall-rs-linux.tar.gz"
+    sha256 "48d4ab3b68141e7591c9fb36051e22f1e93a710206b52c8a31c9a9f5e58108f7"
   end
 
   def install
